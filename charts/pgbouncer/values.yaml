@@ -16,8 +16,14 @@ hostPort: 5432
 ## The Kubernetes service type to expose PgBouncer with.  Use ClusterIP for security, LoadBalancer for dev deployments you want to connect to from outside the cluster.
 serviceType: LoadBalancer
 
-## If serviceType: LoadBalancer and platform is Google, then the below settings can be set to allow for an Internal Load Balancer
-loadBalancerIP: 10.142.15.240
+## load-balancer-type: "" Internal if you want a Internal Load Balancer
+loadBalancerType: null
+
+## loadBalancerIP If serviceType: LoadBalancer and platform is Google, then the below settings can be set to allow for an Internal Load Balancer
+loadBalancerIP: null
+
+## loadBalancerSourceRanges to limit what source IPs are allowing into the LoadBalancer
+loadBalancerSourceRanges: null
 
 ## Maximum number of client connections allowed
 maxClientConnections: 5000
