@@ -1,14 +1,14 @@
 name: pgbouncer
-version: 0.2.0
+version: 0.2.1
 description: Chart for PGBouncer
 keywords:
-- postgresql
-- database
-- sql
+  - postgresql
+  - database
+  - sql
 home: https://pgbouncer.github.io
 sources:
-- https://github.com/clearbit/charts
+  - https://github.com/clearbit/charts
 maintainers:
-- name: FutureTech Industries
-  email: ops@futuretech.industries
+  - name: FutureTech Industries
+    email: ops@futuretech.industries
 engine: gotpl

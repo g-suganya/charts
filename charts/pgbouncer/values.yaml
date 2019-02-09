@@ -2,7 +2,7 @@
 ## See https://kubernetes.io/docs/concepts/containers/images/
 image: futuretechindustries/pgbouncer-kube
 imagePullPolicy: IfNotPresent
-imageTag: '0.5'
+imageTag: "0.5"
 
 ## The number of PgBouncer pods.
 replicasCount: 2
@@ -14,7 +14,10 @@ host: ""
 hostPort: 5432
 
 ## The Kubernetes service type to expose PgBouncer with.  Use ClusterIP for security, LoadBalancer for dev deployments you want to connect to from outside the cluster.
-serviceType: ClusterIP
+serviceType: LoadBalancer
+
+## If serviceType: LoadBalancer and platform is Google, then the below settings can be set to allow for an Internal Load Balancer
+loadBalancerIP: 10.142.15.240
 
 ## Maximum number of client connections allowed
 maxClientConnections: 5000
@@ -30,7 +33,7 @@ serverIdleTimeout: 60
 serverLifetime: 3600
 
 ## Pool mode.
-poolMode: 'transaction'
+poolMode: "transaction"
 
 ## Log configuration. Should be integers.
 logConnections: 1
@@ -56,7 +59,8 @@ memory: 200Mi
 ##
 ## e.g. "role: worker-general"
 ## It is a good idea to have a node pool that only runs PgBouncers and to use this selector to schedule them there.
-nodeSelector: null
+nodeSelector:
+  null
   ##role: proxies
 
 ## Probe (health check) configuration.
@@ -66,11 +70,11 @@ probes:
   username: null
   password: null
   ## Change this to a database the user has access to.
-  database: 'postgres'
+  database: "postgres"
   ## Query to use for the health check.
   ## This will be run against the database frequently and should do little to no intensive work.
   ## The goal is to verify that the connection is good, so the following is usually fine.
-  query: 'select 1'
+  query: "select 1"
   ## Required. Config for the readiness probe. These values match the Kubernetes API.
   ## You may need to up timeoutSeconds if your application does primarily long-running queries or you're using session pooling.
   ## The goal of the readiness probe is to direct connections toward PgBouncer instances that can handle the query.
