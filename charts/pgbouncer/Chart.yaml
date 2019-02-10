@@ -7,8 +7,8 @@ keywords:
   - sql
 home: https://pgbouncer.github.io
 sources:
-  - https://github.com/clearbit/charts
+  - https://github.com/fopark/charts
 maintainers:
-  - name: FutureTech Industries
-    email: ops@futuretech.industries
+  - name: Parker Roan
+    email: roanresources@gmail.com
 engine: gotpl
